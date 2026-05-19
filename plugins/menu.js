@@ -1,0 +1,355 @@
+const { ven, commands } = require('../riko');
+const config = require('../settings');
+const { runtime } = require("../lib/functions");
+
+ven(
+  {
+    pattern: "menu",
+    alise: ["getmenu"],
+    react: "📜",
+    desc: "menu get cmd list",
+    category: "main",
+    filename: __filename,
+  },
+  async (
+    robin,
+    mek,
+    m,
+    {
+      from,
+      quoted,
+      body,
+      isCmd,
+      command,
+      args,
+      q,
+      isGroup,
+      sender,
+      senderNumber,
+      botNumber2,
+      botNumber,
+      pushname,
+      isMe,
+      isOwner,
+      groupMetadata,
+      groupName,
+      participants,
+      groupAdmins,
+      isBotAdmins,
+      isAdmins,
+      reply,
+    }
+  ) => {
+    try {
+      let menu = {
+        main: "LOKU RIKO MINI BOT V2",
+        download: "",
+        group: "loku riko mini bot v2 support groop",
+        owner: "Cybar loku riko",
+        convert: "",
+        search: "menu",
+      };
+
+      for (let i = 0; i < commands.length; i++) {
+        if (commands[i].pattern && !commands[i].dontAddCommandList) {
+          menu[
+            commands[i].category
+          ] += `${config.PREFIX}${commands[i].pattern}\n`;
+        }
+      }
+  let platform = process.platform; 
+  let madeMenu = `👋 *Hello  ${pushname}*
+
+╭━〔 🚀 *𝙻𝙾𝙺𝚄 𝚁𝙸𝙺𝙾 𝙼𝙸𝙽𝙸 𝙱𝙾𝚃 𝚅2* 〕━┈⊷
+┃◈╭──────────────·๏
+┃◈┃• 👑 Owner : *${config.OWNER_NAME}*
+┃◈┃• ⚙️ Prefix : *[${config.PREFIX}]*
+┃◈┃• 📱 Number : *${config.OWNER_NUM}*
+┃◈┃• ★ Created by : *CYBAR LOKU RIKO*
+┃◈┃• 📅 Date : *${new Date().toLocaleDateString()}*
+┃◈┃• ⏰ Time : *${new Date().toLocaleTimeString()}*
+┃◈┃• 🌐 Platform : *${platform}*
+┃◈┃• 📦 Version : *2.2.0*
+┃◈┃• ⏱️ Runtime : *${runtime(process.uptime())}*
+┃◈╰──────────────┈⊷
+╰━━━━━━━━━━━━━━━━┈⊷
+
+*✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧*
+*𝐋𝐎𝐊𝐔 𝐑𝐈𝐊𝐎 𝐌𝐈𝐍𝐈*
+*✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧*
+
+╭─⊳⋅🤖 𝐂𝙾𝚁𝙴 𝐔𝚃𝙸𝙻𝚂 ⋅⊲─╮
+⌬ ${config.PREFIX}alive
+⌬ ${config.PREFIX}menu
+⌬ ${config.PREFIX}system
+⌬ ${config.PREFIX}owner
+⌬ ${config.PREFIX}ping
+⌬ ${config.PREFIX}owner
+⌬ ${config.PREFIX}dev
+⌬ ${config.PREFIX}report
+╰─⊲⋅═══════════⋅⊳─╯
+
+╭─⊳⋅⛩️ 𝐀𝙽𝙸𝙼𝙴 ⋅⊲─╮
+⌬ ${config.PREFIX}anime
+⌬ ${config.PREFIX}andl
+⌬ ${config.PREFIX}download
+⌬ ${config.PREFIX}animedetails
+╰─═══════════⋅⊳─╯
+
+╭─⊳⋅📡 𝐀𝙸 ⋅⊲─╮
+⟠ ${config.PREFIX}ai 
+╰─⊲⋅═════════⋅⊳─╯
+
+╭─⊳⋅👑 𝐎𝚆𝙽𝙴𝚁 ⋅⊲─╮  
+✪ ${config.PREFIX}count  
+⌬ ${config.PREFIX}shutdown
+⌬ ${config.PREFIX}broadcast
+⌬ ${config.PREFIX}gjid
+╰─⊲⋅═════════⋅⊳─╯
+
+╭─⊳⋅🎵 𝐌𝙴𝙳𝙸𝙰 𝐓𝙾𝙾𝙻𝚂 ⋅⊲─╮
+⭒ ${config.PREFIX}sticker
+⭒ ${config.PREFIX}toimg
+⭒ ${config.PREFIX}gen
+⭒ ${config.PREFIX}txt2img
+⭒ ${config.PREFIX}shorten
+⭒ ${config.PREFIX}tourl
+⭒ ${config.PREFIX}movie
+⭒ ${config.PREFIX}img
+⭒ ${config.PREFIX}gifsearch
+⭒ ${config.PREFIX}vv
+⭒ ${config.PREFIX}say
+⭒ ${config.PREFIX}aivoice <text>
+⭒ ${config.PREFIX}calculate
+⭒ ${config.PREFIX}font
+⭒ ${config.PREFIX}couplepp
+⭒ ${config.PREFIX}wallpaper
+⭒ ${config.PREFIX}calc
+⭒ ${config.PREFIX}lyrics
+⭒ ${config.PREFIX}define
+⭒ ${config.PREFIX}pokedex
+⭒ ${config.PREFIX}tempmail
+⭒ ${config.PREFIX}checkmail
+⭒ ${config.PREFIX}technews
+⭒ ${config.PREFIX}vcf
+⭒ ${config.PREFIX}font <text>
+╰─⊲⋅═════════════⋅⊳─╯
+
+╭─⊳⋅⬇️ 𝐃𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝚂 ⋅⊲─╮
+⋗ 𝘼𝙪𝙙𝙞𝙤:
+  ⇝ ${config.PREFIX}song
+  ⇝ ${config.PREFIX}ttmp3
+  ⇝ ${config.PREFIX}spotify
+  ⇝ ${config.PREFIX}ringtone
+  ⇝ ${config.PREFIX}ytmp3 <url>
+
+⋗ �𝙧𝙚𝙢𝙞𝙪𝙢:
+  ⇝ ${config.PREFIX}modapk
+
+⋗ 𝙑𝙞𝙙𝙚𝙤:
+  ⇝ ${config.PREFIX}video
+  ⇝ ${config.PREFIX}fb
+  ⇝ ${config.PREFIX}ttmp4
+  ⇝ ${config.PREFIX}insta
+  ⇝ ${config.PREFIX}movie
+  ⇝ ${config.PREFIX}ytmp4 <url>
+
+⋗ 𝙁𝙞𝙡𝙚𝙨:
+  ⇝ ${config.PREFIX}dl
+  ⇝ ${config.PREFIX}mediafire
+  ⇝ ${config.PREFIX}rtik
+  ⇝ ${config.PREFIX}tiktok <urlW
+  ⇝ ${config.PREFIX}gdrive 
+  ⇝ ${config.PREFIX}capcut
+  ⇝ ${config.PREFIX}telestick
+  ⇝ ${config.PREFIX}apk
+╰─⊲⋅═══════════⋅⊳─╯
+
+╭─⊳⋅🔍 𝐒𝙴𝙰𝚁𝙲𝙷 ⋅⊲─╮
+⨳ ${config.PREFIX}anime
+⨳ ${config.PREFIX}img
+⨳ ${config.PREFIX}weather
+⨳ ${config.PREFIX}movie
+⨳ ${config.PREFIX}ytsearch
+⨳ ${config.PREFIX}wikipedia
+⨳ ${config.PREFIX}tiksearch
+╰─⊲⋅══════════⋅⊳─╯
+
+╭─⊳⋅😃 𝐄𝙼𝙾𝚃 𝐋𝙾𝙽𝚂⋅⊲─╮
+⤷ ${config.PREFIX}happy
+⤷ ${config.PREFIX}heart
+⤷ ${config.PREFIX}angry
+⤷ ${config.PREFIX}sad
+⤷ ${config.PREFIX}shy
+⤷ ${config.PREFIX}moon
+⤷ ${config.PREFIX}confused
+⤷ ${config.PREFIX}hot
+⤷ ${config.PREFIX}nikal
+╰─⊲⋅════════════⋅⊳─╯
+
+╭─⊳⋅ ⚜ 𝐋𝙾𝙶𝙾 ⋅⊲─╮
+⚜ ${config.PREFIX}ephoto <name>
+╰─⊲⋅═══════⋅⊳─╯
+
+
+╭─⊳⋅✞ 𝐑𝙴𝙻𝙸𝙶𝙸𝙾𝙽⊲─╮
+⤞ ${config.PREFIX}bible 
+⤞ ${config.PREFIX}quran
+⤞ ${config.PREFIX}surahlist
+⤞ ${config.PREFIX}praytime
+╰─⊲⋅══════════⋅⊳─╯
+
+╭─⊳⋅🗞️ 𝐍𝙴𝚆𝚂 ⋅⊲─╮
+⨠ ${config.PREFIX}hirunews
+⨠ ${config.PREFIX}itnnews
+╰─⊲⋅════════⋅⊳─╯
+
+╭─⊳⋅🛠️ 𝐒𝚈𝚂𝚃𝙴𝙼 ⋅⊲─╮
+⚙ ${config.PREFIX}restart
+⚙ ${config.PREFIX}leave
+⚙ ${config.PREFIX}block
+⚙ ${config.PREFIX}unblock
+╰─⊲⋅══════════⋅⊳─╯
+
+╭─⊳⋅⚙️ 𝐒𝙴𝚃𝚃𝙸𝙽𝙶𝚂 ⋅⊲─╮
+⚙ ${config.PREFIX}setprefix
+⚙ ${config.PREFIX}mode
+⚙ ${config.PREFIX}auto_typing
+⚙ ${config.PREFIX}always_online
+⚙ ${config.PREFIX}auto_reacording
+⚙ ${config.PREFIX}status_view
+⚙ ${config.PREFIX}status_react
+⚙ ${config.PREFIX}read_message
+⚙ ${config.PREFIX}anti_bad
+⚙ ${config.PREFIX}auto_sticker
+⚙ ${config.PREFIX}auto_reply
+⚙ ${config.PREFIX}auto_voice
+⚙ ${config.PREFIX}auto_react
+⚙ ${config.PREFIX}custom_reacts
+⚙ ${config.PREFIX}anti_link
+⚙ ${config.PREFIX}status_reply
+╰─⊲⋅═════════⋅⊳─╯
+
+
+╭─⊳⋅👥 𝐆𝚁𝙾𝙾𝙿 ⋅⊲─╮
+✫ ${config.PREFIX}mute
+✫ ${config.PREFIX}unmute
+✫ ${config.PREFIX}promote
+✫ ${config.PREFIX}demote
+✫ ${config.PREFIX}kick
+✫ ${config.PREFIX}add
+✫ ${config.PREFIX}gcpp
+✫ ${config.PREFIX}fullpp
+✫ ${config.PREFIX}gclink
+✫ ${config.PREFIX}tagall
+✫ ${config.PREFIX}take
+✫ ${config.PREFIX}kickall
+✫ ${config.PREFIX}kickall2
+✫ ${config.PREFIX}kickadmins
+✫ ${config.PREFIX}groupinfo
+✫ ${config.PREFIX}opentime
+✫ ${config.PREFIX}closetime
+✫ ${config.PREFIX}updategdesc
+✫ ${config.PREFIX}updategname
+✫ ${config.PREFIX}ginfo
+✫ ${config.PREFIX}join
+✫ ${config.PREFIX}lockgc
+✫ ${config.PREFIX}unlockgc
+✫ ${config.PREFIX}newgc
+✫ ${config.PREFIX}out
+✫ ${config.PREFIX}poll
+✫ ${config.PREFIX}revoke
+✫ ${config.PREFIX}hidetag
+✫ ${config.PREFIX}unlockgc
+╰─⊲⋅══════════⋅⊳─╯
+
+
+╭─⊳⋅🌐 𝐒𝙿𝙴𝙲𝙸𝙰𝙻 ⋅⊲─╮
+⎇ ${config.PREFIX}sinhala
+╰─⊲⋅═════════⋅⊳─╯
+
+╭─⊳⋅🎨 𝐀𝙽𝙸𝙼𝙴 𝐌𝙰𝚂𝚂𝙴𝙶𝙴 ⋅⊲─╮
+⤷ ${config.PREFIX}garl
+⤷ ${config.PREFIX}waifu
+⤷ ${config.PREFIX}neko
+⤷ ${config.PREFIX}megumin
+⤷ ${config.PREFIX}maid
+⤷ ${config.PREFIX}awoo
+⤷ ${config.PREFIX}animegirl
+⤷ ${config.PREFIX}animegirl1
+⤷ ${config.PREFIX}animegirl2
+⤷ ${config.PREFIX}animegirl3
+⤷ ${config.PREFIX}animegirl4
+⤷ ${config.PREFIX}animegirl5
+⤷ ${config.PREFIX}anime
+⤷ ${config.PREFIX}anime1
+⤷ ${config.PREFIX}anime2
+⤷ ${config.PREFIX}anime3
+⤷ ${config.PREFIX}anime4
+⤷ ${config.PREFIX}anime5
+⤷ ${config.PREFIX}dog
+╰─⊲⋅════════════⋅⊳─╯
+
+╭─⊳⋅🔞 𝐍𝚂𝙵𝚆 ⋅⊲─╮
+⤷ ${config.PREFIX}xnxx-dl
+⤷ ${config.PREFIX}epsearch
+⤷ ${config.PREFIX}epdownload
+⤷ ${config.PREFIX}hentai
+⤷ ${config.PREFIX}waifu
+╰─⊲⋅══════════⋅⊳─╯
+
+╭─⊳⋅👨💻 𝐃𝚁𝙾𝚂 ⋅⊲─╮
+✏ ${config.PREFIX}gitclone
+✏ ${config.PREFIX}ssweb
+✏ ${config.PREFIX}qr
+✏ ${config.PREFIX}topdf
+✏ ${config.PREFIX}fetch
+╰─⊲⋅════════════⋅⊳─╯
+
+╭─⊳⋅😜 𝐅𝚄𝙽 ⋅⊲─╮
+✘ ${config.PREFIX}quote
+✘ ${config.PREFIX}jokes
+✘ ${config.PREFIX}pickupline
+✘ ${config.PREFIX}emojimix
+✘ ${config.PREFIX}truth
+✘ ${config.PREFIX}dare
+╰─⊲⋅════════⋅⊳─╯
+
+╭─⊳⋅📱 𝐒𝚃𝙰𝙻𝙺𝚂 ⋅⊲─╮
+⟹ ${config.PREFIX}ttstalk
+⟹ ${config.PREFIX}ghstalk
+╰─⊲⋅═════════⋅⊳─╯
+
+*✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧*
+ *𝐋𝐎𝐊𝐔 𝐑𝐈𝐊𝐎 𝐌𝐈𝐍𝐈*
+*✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧*
+`;
+      
+      const newsletterContext = {
+        mentionedJid: [sender],
+        forwardingScore: 1000,
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363402825685029@newsletter',
+          newsletterName: "LOKU RIKO MINI BOT V2",
+          serverMessageId: 143,
+        },
+      };
+
+      await robin.sendMessage(
+        from,
+        {
+          image: {
+            url: "https://i.postimg.cc/NLqnJw8j/20251105-183018.jpg",
+          },
+          caption: madeMenu,
+          contextInfo: newsletterContext,
+        },
+        { quoted: mek }
+      );
+    } catch (e) {
+      console.log(e);
+      reply(`${e}`);
+    }
+  }
+);
